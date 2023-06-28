@@ -1,0 +1,37 @@
+.tabela{
+    border-collapse: collapse;
+}
+.times{
+    width: 50px;
+    border-collapse: collapse;
+}
+.container{
+    display: flex;
+    
+    border: 1px black  solid;
+}
+th, td{
+    border-bottom: 1px solid lightgrey;
+    padding: 0px;
+    border-spacing:none;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+}
+.ultJogos {
+    border-radius: 50%;
+    display: inline-block;
+    height: 7px;
+    margin-left: 4px;
+    overflow: hidden;
+    width: 7px;
+}
+.vitoria {
+    background-color: #51a81e;
+}
+.empate {
+    background-color: #ccc;
+}
+.derrota {
+    background-color: #f00;
+}
