@@ -1,0 +1,453 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    margin: 0px;
+
+}
+.headerNavegaçao{
+    background-color: #f3f3f3;
+    width: 100vw;
+    height: 40px;
+    display: flex;
+}
+.w-100{
+    width: 50%;
+}
+
+.w-50{
+    width: 50%;
+}
+
+.headerNavegaçaoEsquerda, .headerNavegaçaoDireita{
+    display: flex;
+    align-items: center;  
+}
+.headerNavegaçaoEsquerda{
+    margin-left: 55px;
+}
+
+.headerNavegaçaoDireita{
+    justify-content: flex-end;
+}
+
+.headerNavegaçaoDireita span{
+    margin-right:10px;
+}
+
+.headerNavegaçaoEsquerda span{
+    margin-left:10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.headerNavegaçaoEsquerda span:hover{
+    cursor:pointer;
+}
+
+.g1{
+    color: brown;
+    font-weight: bold;
+}
+.ge{
+    color: green;
+    font-weight: bold;
+}
+.gshow{
+    color: orangered;
+    font-weight: bold;
+}
+.globoplay{
+    color: red;
+    font-weight: bold;
+}
+.globo{
+    padding-left: 10px;
+}
+.globo:hover{
+    border-top: 5px solid blue;
+}
+.g1:hover{
+    border-top: 5px solid brown;
+}
+.ge:hover{
+    border-top: 5px solid green;
+}
+.gshow:hover{
+    border-top: 5px solid orangered;
+}
+.globoplay:hover{
+    border-top: 5px solid red;
+}
+.assineJa{
+    color: gray;
+    word-spacing: 0.5;
+    font-size: 13px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.buttonEntrar{
+    border-right: 0.5px solid #c4bfbf;
+    border-left: 0.5px solid #c4bfbf;
+    border-bottom: 0.5px solid #c4bfbf;
+    border-radius: 3px;
+    border-top: 0.5px solid #c4bfbf;
+    height: 22px;
+    box-shadow: 1px 1px #cbc6c6;
+    background-image: linear-gradient(to right, #d3cdcd , #e9e9f2, #d3cdcd);
+}
+.buttonEntrar:hover{
+    background-image: linear-gradient(to right, #e9e9f2 , #e9e9f2, #e9e9f2);
+    cursor:pointer;
+    color: blue;
+}
+
+
+.menuLateral{
+    width: 0px;
+    height: 100%;
+    overflow: auto;
+    z-index: 9;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: all 0.5s;
+    
+}
+.menuLateral a{
+    background-color: white;
+    color: black;
+    display: block;
+    padding: 40px;
+    text-decoration: none;
+    font-size: 28px;
+}
+.menuLateral a:hover{
+    background-color: gray;
+}
+.conteinerOverlay{
+    z-index: 8;
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    opacity: 30%;
+    background-color: black;
+}
+.headerPrincipal{
+    width: 100vw;
+    background-color: #06AA48;
+    height: 80px;
+    display: flex;
+    align-items: center;    
+    justify-content: space-between; 
+}
+.menu-Lateral{
+    margin-left: 45px;
+    width: 12%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+.hamburguer{
+    width: 20px;
+    border: none;
+    color: white;
+
+}
+.botaoMenu{
+    background-color: #06AA48;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.headerDescricaoPagina{
+    width: 60%;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.pesquisa{
+    width: 20%;
+    text-align: right;
+    display: flex;
+    padding-right: 20px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+}
+.inputPesquisa{
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    width: 150px;
+    transition: width 1s;
+    color: white;
+}
+.inputPesquisa:focus-visible{
+    width: 220px;
+    transition: width 1s;
+    
+}
+.inputPesquisa:focus-visible::placeholder{
+    color:white;
+    font-weight: bold;
+}
+
+.campoPesquisa{
+    padding-left: 5px;
+    background-color: #056c2e;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.campoPesquisa:has(.input-pesquisa:focus-visible) .lupa{
+    color: gray;
+}
+
+.headerLink{
+    background-color: #06AA48;
+    border-top: 0.5px solid rgba(180, 180, 180, 0.425);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px
+}
+
+.headerLink a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    opacity: 0.5;
+}
+.headerLink a:hover{
+    opacity: 1;
+}
+
+.headerLink span{
+   margin-right:15px;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   
+}
+.spanHeaderLink{
+    margin-left: 35px;
+}
+
+.headerLink span.ativo{
+    border-bottom: 5px white solid;
+}
+.tabelaPrincipal{
+    width: 60%;
+    margin-right: 50px;
+    padding: 0px;
+    border-collapse: collapse;
+}
+.jogosTabela{
+    width: 30%;
+    margin-left: 100px;
+    margin-right: 50px;
+    padding: 0px;
+    border-collapse: collapse;
+    height: 230%;
+    
+}
+th, td{
+    border-bottom: 1px solid lightgrey;
+    padding: 0px;
+    border-spacing:none;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+}
+.classificação{
+    color: lightgrey;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 1px solid lightgrey;
+}
+
+.classificacaoUltimosJogos {
+    border-radius: 50%;
+    display: inline-block;
+    height: 7px;
+    margin-left: 4px;
+    overflow: hidden;
+    width: 7px;
+}
+.classificacaoUltimosJogosV {
+    background-color: #51a81e;
+}
+.classificacao__ultimos_jogos--e, .classificacao__ultimos_jogos--neutra {
+    background-color: #ccc;
+}
+.classificacao__ultimos_jogos--d {
+    background-color: #f00;
+}
+
+span.classificacao__icone--neutra {
+    background-image: none;
+    background-color: #ccc;
+    height: 7px;
+    width: 7px;
+}
+.classificacao__equipes--variacao {
+    color: #bebebe;
+    font-size: 11px;
+    padding: 3px 0 0 px;
+    text-align: start;
+}
+.classificacao__icone {
+    background-size: 17px 50px;
+    background: url(https://s.glbimg.com/es/ge/static/live/widget_classificacao_responsivo/img/sprite-tabela-icones.svg?5dfb76dc3509) no-repeat left 1px;
+    display: inline-block;
+    height: 10px;
+    background-position-y: 2px;
+    margin-left: 6px;
+    overflow: hidden;
+    width: 8px;
+}
+.classificacao__icone--negativa {
+    background-position: right 2px;
+}
+.fundoCinza{
+    background-color:#f5f5f5;
+}
+.headerTabela{
+    border: none;
+    font-size: 24px;
+}
+.corAzulNumero{
+    color: blue;
+}
+.corCianoNumero{
+    color: cyan;
+}
+.corVerdeNumero{
+    color: green;
+}
+.corCinzaNumero{
+    color: grey;
+}
+.corVermelhoNumero{
+    color: red;
+}
+.tabelaFull{
+    width: 1300px;
+    height: auto;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.headerJogos{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+}
+.navegacaoSetas {
+    color: #ccc;
+    flex-grow: 1;
+    text-align: left;
+    font-size: 1.5em;
+    height: 1.5em;
+    fill: #ccc;
+}
+.seta-direita{
+    text-align: right;
+}
+.seta-esquerda svg {
+    transform: rotate(180deg);
+}
+.setas-ativa {
+    cursor: pointer;
+}
+.navegacaoSetas svg {
+    height: 0.7em;
+    stroke-width: 10px;
+    width: 20px;
+}
+.divSetas{
+    margin-top: 15px;
+    display: flex;
+    margin-top: 3px solid lightgrey ;
+    border-bottom: 1px solid lightgrey;
+
+}
+.rodadaJogos{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+.lista-jogos{
+    list-style: none;
+    padding-left: 0px;
+}
+.jogo {
+    height: 92px;
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;;
+    justify-content: center;
+}
+.jogo__informacoes {
+    color: #555;
+    font-family: opensans;
+    font-size: 0.6875em;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -.3px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.placar {
+    align-items: center;
+    color: #333;
+    display: flex;
+    height: 4em;
+    justify-content: center;
+    margin-top: 5px;
+}
+.placar__equipes {
+    align-items: center;
+    color: #333;
+    display: flex;
+    flex-grow: 1;
+    font-family: opensans;
+    font-size: 1.125em;
+    font-stretch: 100%;
+    font-style: normal;
+    font-weight: 100;
+    height: 40px;
+    line-height: 1em;
+    vertical-align: middle;
+    width: 35%;
+}
+.placar__equipes--mandante {
+    text-align: right;
+    justify-content: flex-end;
+}
+.placar__equipes--visitante {
+    text-align: left;
+    justify-content: flex-start;
+}
+
+.placar-box {
+    align-items: center;
+    color: #111;
+    display: flex;
+    flex-grow: 2;
+    height: 40px;
+    justify-content: center;
+    width: 30%;
+}
