@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="estilo.css">
-    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <div class="container"> 
+        <div id="TabelaBrasileirao" class="divPrincipal">
             <div class="interno">
                 <table class="tabela">
                     <thead>
+                        <h2 class="titulo">TABELA</h2>
                         <tr>
-                            <th class="times">Classificação</th>
-                            <th class="times">Time</th>
-                            <th class="times"></th>
+                            <th class="times" colspan="3">Classificação</th>
                             <th class="times">P</th>
                             <th class="times">J</th>
                             <th class="times">V</th>
@@ -29,12 +28,79 @@
                         </tr>
                     </thead>
                     <tbody id="tbody">
-
+                        
                     </tbody>
                 </table>
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="script1.js"></script>   
+        <script>
+            window.onload=function(){
+                existeTabela=false;
+                existeJogos=false;
+                loadingTela();
+                ajaxTabela();
+            }
 
+            function loadingTela(){
+                if (existeTabela==false){
+                    $("#TabelaBrasileirao").html('<div class="loader"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>');
+                }
+                else{
+                    $("#TabelaBrasileirao").html(' <div class="interno"><table class="tabela"><thead><h2 class="titulo">TABELA</h2><tr><th class="times" colspan="3">Classificação</th><th class="times">P</th><th class="times">J</th><th class="times">V</th><th class="times">E</th><th class="times">D</th><th class="times">GP</th><th class="times">GC</th><th class="times">SG</th><th class="times">%</th><th class="times">ÚLT.JOGOS</th></tr></thead><tbody id="tbody"></tbody></table></div>')
+                }
+            }
+            function ajaxTabela(){
+                $.ajax({
+                    type: "GET",           
+                    url: "https://api.api-futebol.com.br/v1/campeonatos/10/tabela",
+                    headers: {'Authorization': 'Bearer test_5688a48532f24aff87d9f394a47015'},
+                   // headers: {'Authorization': 'Bearer live_bbddf6eae4275a3bd266ad964ecb77'},
+                    contentType: 'json',
+                    dataType: 'json',
+                    success: function(response){
+                        tabelaJava(response);
 
-</body>
+                        verificarRodadaAtual();
+
+                       
+                    }
+                });
+            }
+            function verificarRodadaAtual(){
+                $.ajax({
+                    type: "GET",           
+                    url: "https://api.api-futebol.com.br/v1/campeonatos/10/rodadas",
+                    headers: {'Authorization': 'Bearer test_5688a48532f24aff87d9f394a47015'},
+                    //headers: {'Authorization': 'Bearer live_bbddf6eae4275a3bd266ad964ecb77'},
+                    contentType: 'json',
+                    dataType: 'json',
+                    success: function(response){
+                        var rodadaAtual = 1;
+                        for(var pos=0; pos < response.length; pos++){
+                            if(response[pos].status != "encerrada"){
+                                rodadaAtual = response[pos].rodada;
+                                break;
+                            }
+                        }
+
+                        ajaxJogos(rodadaAtual);
+                    }});
+            }
+            function ajaxJogos(rodadaId){
+                $.ajax({
+                    type: "GET",           
+                    url: "https://api.api-futebol.com.br/v1/campeonatos/10/rodadas/"+rodadaId,
+                    headers: {'Authorization': 'Bearer test_5688a48532f24aff87d9f394a47015'},
+                    //headers: {'Authorization': 'Bearer live_bbddf6eae4275a3bd266ad964ecb77'},
+                    contentType: 'json',
+                    dataType: 'json',
+                    success: function(response){
+                        tabelaJogos(response);
+                    }});
+            }
+        </script>
+    </body>
 </html>
